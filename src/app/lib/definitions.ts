@@ -65,6 +65,7 @@ export type Card = {
 };
 
 export function CheckCardType(card: any): boolean {
+  console.log(typeof card.container);
   return (
     card &&
     typeof card.container === "object" &&
