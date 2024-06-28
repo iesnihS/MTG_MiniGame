@@ -1,14 +1,4 @@
 export type Card = {
-  creature: number;
-  instant: number;
-  sorcery: number;
-  artifact: number;
-  enchantment: number;
-  battle: number;
-  planeswalker: number;
-  land: number;
-  basic: number;
-  nonbasic: number;
   container: {
     json_dict: {
       card: {
@@ -72,4 +62,17 @@ export type Card = {
       };
     };
   };
+};
+
+export function CheckCardType(card: any): boolean {
+  return (
+    card &&
+    typeof card.container === "object" &&
+    typeof card.container.json_dict === "object" &&
+    typeof card.container.json_dict.card === "object"
+  );
+}
+
+export type Catalog = {
+  data: [string];
 };
