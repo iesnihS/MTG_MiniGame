@@ -1,18 +1,20 @@
 import { Card, CheckCardType} from "./lib/definitions";
 import styles from "./page.module.css";
-import { GetCatalog, GetCurrenStringFormat} from "./lib/formatData";
+import { GetCatalog, GetCurrenStringFormat} from "./lib/manageDataBase";
 
 export default async function Home() {
-  let cardJSON;
-  const card = await fetch(
-    "https://json.edhrec.com/pages/cards/tatsunari-toad-rider.json"
-  );
+
+  const testFetch = async()=>
+    {
+      const data =  await fetch("http://localhost:3001/cardAPI/test", {method: 'POST',  headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({Fourmis : "Mante"})});
+    }
   
-  cardJSON = (await card.json()) as Card;
-  GetCurrenStringFormat("Wolfbitten Captive // Krallenhorde Killer");
+  testFetch();
   return (
     <main className={styles.main}>
-      {cardJSON.container.json_dict.card.name}
     </main>
   );
 }
