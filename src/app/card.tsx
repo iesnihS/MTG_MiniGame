@@ -3,7 +3,7 @@ import Image from "next/image";
 export default async function Card (){
 const getRandomCardFromDB = async()=>
     {
-      const data =  await fetch("http://localhost:3001/cardAPI/randomcard",{
+      const data =  await fetch("https://vercel.com/iesnihss-projects/mtg-mini-game-back/cardAPI/randomcard",{
         cache: "no-store",
       });
       return data;
