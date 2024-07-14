@@ -1,19 +1,10 @@
 import styles from "./page.module.css";
-import Card from "./card";
+import Button from "./components/button";
 
-export default async function Home() {  
+export default async function Home() {
   return (
     <main className={styles.main}>
-      <Card></Card>
+      <a href="/dilemma">MiniGame</a>
     </main>
   );
 }
-
-
-// const testFetch = async()=>
-//   {
-//     const data =  await fetch("http://localhost:3001/cardAPI/test", {method: 'POST',  headers: {
-//       'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({Fourmis : "Mante"})});
-//   }

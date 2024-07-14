@@ -13,3 +13,9 @@
   height: 4vh;
   width: 5vw;
 }
+
+.quizzContainer
+{
+  display: flex;
+  flex-direction: row;
+}
