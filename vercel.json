@@ -1,0 +1,14 @@
+{
+    "headers": [
+      {
+        "source": "/cardAPI/randomcard",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          }
+        ]
+      }
+    ]
+  }
+  
