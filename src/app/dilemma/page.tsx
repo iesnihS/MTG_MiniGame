@@ -10,9 +10,7 @@ export default async function Home() {
         cache: "no-store",
       }
     );
-    console.log(
-      "fetch done, data : " + data.headers + " " + data.status + " " + data.body
-    );
+    console.log(data);
     return (await data.json()) as CardData;
   };
 
