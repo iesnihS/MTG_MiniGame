@@ -10,11 +10,14 @@ export default async function Home() {
         cache: "no-store",
       }
     );
+    console.log("fetch done, data");
     return (await data.json()) as CardData;
   };
 
   let card1: CardData = await getRandomCardFromDB();
+  console.log(card1);
   let card2: CardData = await getRandomCardFromDB();
+  console.log(card2);
 
   let i = 10;
   while (i > 0) {
