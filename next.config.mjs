@@ -9,20 +9,17 @@ const nextConfig = {
       },
     ],
   },
-  reactStrictMode: true,
-  async headers() {
-    return [
-      {
-        source: "/about",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "s-maxage=1, stale-while-revalidate=59",
-          },
-        ],
-      },
-    ];
-  },
+  headers: [
+    {
+      source: "/_next/image",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "public, max-age=0, must-revalidate",
+        },
+      ],
+    },
+  ],
 };
 
 export default nextConfig;
