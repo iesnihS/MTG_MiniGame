@@ -7,7 +7,7 @@ export default async function Home() {
     const data = await fetch(
       "https://mtg-mini-game-back.vercel.app/cardAPI/randomcard",
       {
-        cache: "reload",
+        cache: "no-store",
       }
     );
     console.log(data);
