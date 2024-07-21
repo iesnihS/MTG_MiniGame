@@ -13,7 +13,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/dilemma",
+        source: "/cardAPI/randomcard",
         headers: [
           {
             key: "Cache-Control",
