@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "../page.module.css";
 import Card from "../components/card";
 import { CardData } from "../lib/definitions";
