@@ -4,12 +4,9 @@ import { CardData } from "../lib/definitions";
 
 export default async function Home() {
   const getRandomCardFromDB = async () => {
-    const data = await fetch(
-      "https://mtg-mini-game-back.vercel.app/cardAPI/randomcard",
-      {
-        cache: "no-store",
-      }
-    );
+    const data = await fetch("http://localhost:3001/cardAPI/randomcard", {
+      cache: "no-store",
+    });
     console.log(data);
     return (await data.json()) as CardData;
   };
