@@ -6,6 +6,7 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <Dilemma></Dilemma>
+      <Dilemma></Dilemma>
     </main>
   );
 }
