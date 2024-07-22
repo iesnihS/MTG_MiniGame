@@ -52,7 +52,7 @@ export type CardData = {
   label: string;
   new: boolean;
   url: string;
-};
+} | null;
 
 export function CheckCardType(card: any): boolean {
   console.log(typeof card.container);

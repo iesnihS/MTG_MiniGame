@@ -1,5 +1,4 @@
-import styles from "./page.module.css";
-import Button from "./components/button";
+import styles from "./styles/page.module.css";
 
 export default async function Home() {
   return (

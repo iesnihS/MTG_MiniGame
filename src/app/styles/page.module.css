@@ -1,10 +1,10 @@
 .main {
+  min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  position: relative;
   background-color: rgb(36, 36, 36);
 }
 
@@ -14,8 +14,4 @@
   width: 5vw;
 }
 
-.quizzContainer
-{
-  display: flex;
-  flex-direction: row;
-}
+

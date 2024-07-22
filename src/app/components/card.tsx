@@ -5,17 +5,21 @@ interface CardProps {
   cardJson: CardData;
 }
 
-export default async function Card({ cardJson }: CardProps) {
+export default function Card({ cardJson }: CardProps) {
   {
     return (
       <>
-        <Image
-          src={cardJson.image_normal}
-          width={488}
-          height={680}
-          priority={true}
-          alt={cardJson.name}
-        ></Image>
+        {cardJson ? (
+          <Image
+            src={cardJson.image_normal}
+            width={488}
+            height={680}
+            priority={true}
+            alt={cardJson.name}
+          ></Image>
+        ) : (
+          <></>
+        )}
       </>
     );
   }
