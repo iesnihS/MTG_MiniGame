@@ -1,6 +1,6 @@
 export type CardData = {
   name: string;
-  playrate: number;
+  playrate: string;
   inclusion: number;
   num_decks: number;
   potential_decks: number;

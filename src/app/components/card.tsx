@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CardData } from "../lib/definitions";
+import style from "@/app/styles/card.module.css";
 
 interface CardProps {
   cardJson: CardData;
@@ -7,9 +8,11 @@ interface CardProps {
 
 export default function Card({ cardJson }: CardProps) {
   {
+    if (!cardJson) return <></>;
+
     return (
       <>
-        {cardJson ? (
+        <div className={style.card}>
           <Image
             src={cardJson.image_normal}
             width={488}
@@ -17,9 +20,8 @@ export default function Card({ cardJson }: CardProps) {
             priority={true}
             alt={cardJson.name}
           ></Image>
-        ) : (
-          <></>
-        )}
+          <div>{parseFloat(cardJson.playrate).toFixed(2) + "%"}</div>
+        </div>
       </>
     );
   }
