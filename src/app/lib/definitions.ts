@@ -1,4 +1,6 @@
 export type CardData = {
+  name: string;
+  playrate: number;
   inclusion: number;
   num_decks: number;
   potential_decks: number;
@@ -12,7 +14,6 @@ export type CardData = {
   layout: string;
   moxfield_uri: string;
   mtggoldfish_uri: string;
-  name: string;
   names: [string];
   prices: {
     cardhoarder: {
