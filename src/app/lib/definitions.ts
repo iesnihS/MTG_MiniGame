@@ -1,9 +1,9 @@
 export type CardData = {
   name: string;
   playrate: string;
-  inclusion: number;
-  num_decks: number;
-  potential_decks: number;
+  inclusion: string;
+  num_decks: string;
+  potential_decks: string;
   aetherhub_uri: string;
   archidekt_uri: string;
   color_identity: [string, string];
