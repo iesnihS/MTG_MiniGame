@@ -10,6 +10,7 @@ interface DilemmaProps {
 }
 
 export default function Dilemma() {
+  const score = useRef(0);
   const [card1, setCard1] = useState<CardData>(null);
   const [card2, setCard2] = useState<CardData>(null);
   const [showCard, setShowCard] = useState(false);
@@ -22,7 +23,7 @@ export default function Dilemma() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ rate: 10, number: 2 }),
+        body: JSON.stringify({ rate: 2, number: 2 }),
         cache: "no-store",
       }).then((res) => {
         res.json().then((json) => {
@@ -39,38 +40,64 @@ export default function Dilemma() {
         });
       });
     }
-  }, []);
+  }, [card1, card2]);
 
+  const ShowTheCards = (card: CardData) => {
+    if (card === card1 && card1IsMorePopular) score.current++;
+    else if (card === card2 && !card1IsMorePopular) score.current++;
+    else score.current = 0;
+    setShowCard(true);
+  };
   if (card1 === null || card2 === null || countDeck === 0) return <></>;
 
-  let card1IsMorePopular = null;
-  if (parseFloat(card1.playrate) === parseFloat(card2.playrate)) {
-    const factor =
-      parseFloat(card1.potential_decks) / parseFloat(card2.potential_decks);
-    const nominator = parseFloat(card2.num_decks) * factor;
-    card1IsMorePopular = nominator < parseInt(card1.num_decks);
-  }
-
-  card1IsMorePopular =
-    card1IsMorePopular === null
-      ? parseFloat(card1.playrate) > parseFloat(card2.playrate)
-      : card1IsMorePopular;
+  let card1IsMorePopular =
+    parseInt(card2.num_decks) < parseInt(card1.num_decks);
 
   return (
-    <div className={styles.quizzContainer}>
-      <Card
-        cardJson={card1}
-        resolvedDilemma={card1IsMorePopular}
-        stateShowCard={[showCard, setShowCard]}
-        countDeck={countDeck}
-      ></Card>
-      <Card
-        cardJson={card2}
-        resolvedDilemma={!card1IsMorePopular}
-        stateShowCard={[showCard, setShowCard]}
-        countDeck={countDeck}
-      ></Card>
-      <a href="/dilemma">MiniGame</a>
+    <div className={styles.dilemmaContainer}>
+      <div className={styles.header}>
+        <a className={styles.mainMenuButton} href="/">
+          Main Menu
+        </a>
+      </div>
+
+      <div className={styles.quizzContainer}>
+        <div className={styles.cardsContainer}>
+          <Card
+            cardJson={card1}
+            resolvedDilemma={card1IsMorePopular}
+            stateShowCard={[
+              showCard,
+              () => {
+                ShowTheCards(card1);
+              },
+            ]}
+            countDeck={countDeck}
+          ></Card>
+          <Card
+            cardJson={card2}
+            resolvedDilemma={!card1IsMorePopular}
+            stateShowCard={[
+              showCard,
+              () => {
+                ShowTheCards(card2);
+              },
+            ]}
+            countDeck={countDeck}
+          ></Card>
+        </div>
+
+        <div
+          onClick={() => {
+            setCard1(null);
+            setCard2(null);
+            setShowCard(false);
+          }}
+        >
+          MiniGame
+        </div>
+        <div>{score.current}</div>
+      </div>
     </div>
   );
 }

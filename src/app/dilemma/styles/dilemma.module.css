@@ -1,6 +1,33 @@
-.quizzContainer
-{
+.dilemmaContainer {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.header {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  gap: 2vw;
+  justify-content: flex-end;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.quizzContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Ensure that cards wrap on smaller screens */
+}
+
+.mainMenuButton {
+  padding: 0.1vw 0.2vh;
+  background-color: #000; /* Adjust according to your design */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
 }

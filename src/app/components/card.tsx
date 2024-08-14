@@ -25,13 +25,13 @@ export default function Card({
         <div
           className={styleCard}
           onClick={() => {
-            stateShowCard[1](true);
+            stateShowCard[1]();
           }}
         >
           <Image
             src={cardJson.image_normal}
-            width={488}
-            height={680}
+            width={390}
+            height={544}
             priority={true}
             alt={cardJson.name}
           ></Image>
